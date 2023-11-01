@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:speed_reader_pro/screen/UploadPhoto.dart';
-import 'package:speed_reader_pro/screen/input_text.dart';
+import 'package:speed_reader_pro/screen/InputText.dart';
 import 'package:speed_reader_pro/screen/UploadPhoto.dart'; // Import the new page
 
 void main() {

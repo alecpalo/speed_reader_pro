@@ -57,7 +57,7 @@ class _InputTextState extends State<InputText> {
               padding: const EdgeInsets.symmetric(horizontal: 60.0),
               child: TextField(
                 controller: textController,
-                maxLines: 8,
+                maxLines: 20,
                 decoration: InputDecoration(
                   hintText: 'Enter your text here',
                   border: OutlineInputBorder(  // Add border
@@ -66,6 +66,7 @@ class _InputTextState extends State<InputText> {
                 ),
               ),
             ),
+            const Padding(padding: EdgeInsets.symmetric(vertical: 20)),
             ElevatedButton(
               child: Text('Submit Text'),
               onPressed: () {

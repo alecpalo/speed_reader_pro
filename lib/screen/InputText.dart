@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:speed_reader_pro/screen/rsvp.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     title: 'SpeedReaderPro',
-    home: Home(),
+    home: TextInput(),
   ));
 }
 
-class Home extends StatelessWidget {
+class TextInput extends StatelessWidget {
+  const TextInput({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +76,8 @@ class _InputTextState extends State<InputText> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => RSVP(enteredText),
+
+                    builder: (context) => RSVP(enteredText.split(RegExp(r'\s+'))),
                   ),
                 );
               },

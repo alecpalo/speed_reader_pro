@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:speed_reader_pro/screen/UploadPhoto.dart';
 import 'package:speed_reader_pro/screen/InputText.dart';
 import 'package:speed_reader_pro/screen/UploadPhoto.dart'; // Import the new page
+import 'package:speed_reader_pro/screen/UploadFile.dart';
+
+
 
 void main() {
   runApp(MaterialApp(
@@ -39,6 +42,15 @@ class Home extends StatelessWidget {
                 );
               },
             ),
+            ElevatedButton(
+              child: Text('Upload File'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const UploadFile()), // try and see if this works
+                );
+              },
+            )
           ],
         ),
       ),

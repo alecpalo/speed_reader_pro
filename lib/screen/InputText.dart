@@ -49,7 +49,7 @@ class _InputTextState extends State<InputText> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Input Text'),
+        title: Text('ashwin Text'),
       ),
       body: Center(
         child: Column(

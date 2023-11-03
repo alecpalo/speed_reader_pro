@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const UploadPhoto()),
+                  MaterialPageRoute(builder: (context) => UploadPhoto()),
                 );
               },
             ),

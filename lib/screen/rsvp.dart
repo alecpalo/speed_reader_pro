@@ -30,6 +30,8 @@ class _RSVPState extends State<RSVP> {
     }
   }
 
+
+
   void displayNextWord(Duration displayInterval) {
     wordDisplayStream?.cancel(); // Cancel the previous stream, if it's running.
 
@@ -46,11 +48,14 @@ class _RSVPState extends State<RSVP> {
         .takeWhile((_) => play)
         .listen((newNumber) {
       setState(() {
-        if (currentWordIndex < widget.words.length) {
+        // makeshift fix here
+        if (currentWordIndex <= widget.words.length) {
           displayedWord = widget.words[currentWordIndex - 1];
-        } else {
-          displayedWord = "End of Words";
         }
+        // } else {
+        //   displayedWord = "End of Words";
+        //   // displayedWord = widget.words[widget.words.length]
+        // }
       });
     });
   }

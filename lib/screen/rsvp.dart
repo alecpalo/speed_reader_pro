@@ -249,6 +249,14 @@ class _MyRadioListState extends State<MyRadioList> {
                 setState(() {
                   selectedIndex = index;
                 });
+
+                // go to RSVP page with new input text list
+                Navigator.push(
+                  context,
+                  MaterialPageRoute( // given the text starting from that index to RSVP
+                    builder: (context) => (RSVP(items.sublist(selectedIndex)))
+                  )
+                );
                 // print("Button $index pressed");
               },
               style: ElevatedButton.styleFrom(

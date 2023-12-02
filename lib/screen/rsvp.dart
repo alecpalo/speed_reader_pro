@@ -7,7 +7,7 @@ class RSVP extends StatefulWidget {
   RSVP(this.words);
 
   @override
-  _RSVPState createState() => _RSVPState();
+  _RSVPState createState() => _RSVPState(); // reads directly from input text
 }
 
 class _RSVPState extends State<RSVP> {
@@ -52,10 +52,7 @@ class _RSVPState extends State<RSVP> {
         if (currentWordIndex <= widget.words.length) {
           displayedWord = widget.words[currentWordIndex - 1];
         }
-        // } else {
-        //   displayedWord = "End of Words";
-        //   // displayedWord = widget.words[widget.words.length]
-        // }
+
       });
     });
   }
@@ -183,6 +180,7 @@ class _RSVPState extends State<RSVP> {
 
           Align(
             alignment: Alignment.bottomRight,
+            // alignment: Alignment(1.1, 1)
             child: Padding(
               padding: const EdgeInsets.all(40.0),
               child: ElevatedButton(
@@ -193,8 +191,64 @@ class _RSVPState extends State<RSVP> {
               ),
             ),
           ),
+          // Adding start position chooser functionality
+          Align(
+            alignment: Alignment(0, 1.1),
+            child: Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // open into screen showing input text
+                  String widget_words = widget.words.join(',');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NewScreen(widget_words),
+                    ),
+                  );
+                },
+                child: Text("Choose Position"),
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
+
 }
+
+// NewScreen for Selecting position in text
+class NewScreen extends StatelessWidget {
+  final String words_thing;
+
+  // constructor to get text from first screen
+  NewScreen(this.words_thing);
+
+  @override
+  Widget build(BuildContext context) {
+    List<String> items = words_thing.split(","); // change into list
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Select new position'),
+      ),
+      body: ListView.builder( // now need to make these all buttons
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(items[index]),
+            // Add any additional widgets or functionality here
+          );
+        },
+      ),
+    );
+  }
+}
+
+
+// now change all the elements in this lis
+
+
+// body: Center(
+// child: Text(textFromFirstScreen), // will replace this with text from first screen
+// ),

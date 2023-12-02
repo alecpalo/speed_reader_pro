@@ -47,7 +47,7 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const UploadFile()), // try and see if this works
+                  MaterialPageRoute(builder: (context) => const UploadFile()),
                 );
               },
             )

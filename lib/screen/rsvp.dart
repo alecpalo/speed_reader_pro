@@ -203,7 +203,7 @@ class _RSVPState extends State<RSVP> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NewScreen(widget_words),
+                      builder: (context) => MyRadioList(widget_words),
                     ),
                   );
                 },
@@ -218,16 +218,24 @@ class _RSVPState extends State<RSVP> {
 
 }
 
-// NewScreen for Selecting position in text
-class NewScreen extends StatelessWidget {
-  final String words_thing;
+// this works so far- with no text adding stuff
+class MyRadioList extends StatefulWidget {
+  final String wordsThing;
 
-  // constructor to get text from first screen
-  NewScreen(this.words_thing);
+  MyRadioList(this.wordsThing);
+
+
+  @override
+  _MyRadioListState createState() => _MyRadioListState();
+}
+
+class _MyRadioListState extends State<MyRadioList> {
+  int selectedIndex = -1; // initialize as negative index
+
 
   @override
   Widget build(BuildContext context) {
-    List<String> items = words_thing.split(","); // change into list
+    List<String> items = widget.wordsThing.split(","); // change into list
     return Scaffold(
       appBar: AppBar(
         title: const Text('Select new position'),
@@ -235,9 +243,18 @@ class NewScreen extends StatelessWidget {
       body: ListView.builder( // now need to make these all buttons
         itemCount: items.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(items[index]),
-            // Add any additional widgets or functionality here
+          return ElevatedButton(
+              onPressed: (){
+                //print("bruh");
+                setState(() {
+                  selectedIndex = index;
+                });
+                // print("Button $index pressed");
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: selectedIndex == index ? Colors.red : null,
+              ),
+              child: Text(items[index])
           );
         },
       ),
@@ -246,9 +263,30 @@ class NewScreen extends StatelessWidget {
 }
 
 
-// now change all the elements in this lis
 
 
-// body: Center(
-// child: Text(textFromFirstScreen), // will replace this with text from first screen
-// ),
+
+// bring this back- radio list stuff
+// @override
+// Widget build(BuildContext context) {
+//   List<String> items = wordsThing.split(","); // change into list
+//   return Scaffold(
+//     appBar: AppBar(
+//       title: const Text('Select new position'),
+//     ),
+//     body: ListView.builder( // now need to make these all buttons
+//       itemCount: items.length,
+//       itemBuilder: (context, index) {
+//         return RadioListTile (
+//             title: Text(items[index]),
+//             value: index,
+//             groupValue: "thig",
+//             onChanged: (value) {
+//               print("bruh");
+//             }
+//         );
+//       },
+//     ),
+//   );
+// }
+// }

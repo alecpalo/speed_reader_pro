@@ -16,6 +16,7 @@ class TextInput extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('SpeedReaderPro'),
+        backgroundColor: Colors.grey, // Grayscale color
       ),
       body: Center(
         child: Column(
@@ -29,6 +30,9 @@ class TextInput extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => InputText()),
                 );
               },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey, // Grayscale color
+              ),
             ),
           ],
         ),
@@ -50,11 +54,26 @@ class _InputTextState extends State<InputText> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Input Text'),
+        backgroundColor: Colors.grey[800], // Grayscale color
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Added Container for the text above TextField
+            Container(
+              margin: EdgeInsets.only(bottom: 10), // Adjust as needed
+              child: Text(
+                'Enter your text below:',
+                style: TextStyle(fontSize: 16, color: Colors.grey), // Grayscale color
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 60.0),
               child: TextField(
@@ -62,7 +81,11 @@ class _InputTextState extends State<InputText> {
                 maxLines: 20,
                 decoration: InputDecoration(
                   hintText: 'Enter your text here',
-                  border: OutlineInputBorder(  // Add border
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey), // Grayscale color
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
                 ),
@@ -76,11 +99,13 @@ class _InputTextState extends State<InputText> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-
                     builder: (context) => RSVP(enteredText.split(RegExp(r'\s+'))),
                   ),
                 );
               },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey[800], // Grayscale color
+              ),
             ),
           ],
         ),

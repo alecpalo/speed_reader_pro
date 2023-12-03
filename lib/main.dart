@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:speed_reader_pro/screen/UploadPhoto.dart';
 import 'package:speed_reader_pro/screen/InputText.dart';
-import 'package:speed_reader_pro/screen/UploadPhoto.dart'; // Import the new page
 import 'package:speed_reader_pro/screen/UploadFile.dart';
-
-
 
 void main() {
   runApp(MaterialApp(
@@ -17,40 +13,72 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('SpeedReaderPro'),
-      ),
-      body: Center(
+      appBar: null,
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ElevatedButton(
-              child: Text('Input Text'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => InputText()),
-                );
-              },
+            // Image at the top
+            Align(
+              alignment: Alignment.topCenter,
+              child: Image.asset(
+                'assets/images/SpeedReaderProLogo.png', // Replace with your actual image path
+                width: 500,
+                height: 200,
+              ),
             ),
-            ElevatedButton(
-              child: Text('Upload Photo'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => UploadPhoto()),
-                );
-              },
+            SizedBox(height: 250), // Reduced the SizedBox height
+            // Buttons in the middle center
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => InputText()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.grey[800], // Dark gray background color
+                  padding: EdgeInsets.zero,
+                ),
+                child: SizedBox(
+                  width: 150,
+                  height: 50,
+                  child: Center(
+                    child: Text(
+                      'Enter Text',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                ),
+              ),
             ),
-            ElevatedButton(
-              child: Text('Upload File'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const UploadFile()),
-                );
-              },
-            )
+            SizedBox(height: 16),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const UploadFile()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.grey[800], // Dark gray background color
+                  padding: EdgeInsets.zero,
+                ),
+                child: SizedBox(
+                  width: 150,
+                  height: 50,
+                  child: Center(
+                    child: Text(
+                      'Upload PDF',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

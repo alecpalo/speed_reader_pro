@@ -40,6 +40,12 @@ class _TextChangingButtonState extends State<UploadPhoto> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Text Changing Button Example"),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Center(
         child: Column(

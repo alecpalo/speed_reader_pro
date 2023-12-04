@@ -58,6 +58,8 @@ flutter:
   assets:
     - assets/images/SpeadReaderProLogo.png
     - assets/images/SpeedReaderProLogo.png
+    - assets/images/SpeedRead.png
+    - assets/images/SpeedReadReal.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

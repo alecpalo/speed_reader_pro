@@ -23,8 +23,8 @@ class Home extends StatelessWidget {
             Align(
               alignment: Alignment.topCenter,
               child: Image.asset(
-                'assets/images/SpeedReaderProLogo.png', // Replace with your actual image path
-                width: 500,
+                'assets/images/SpeedReadReal.png', // Replace with your actual image path
+                width: 1000,
                 height: 200,
               ),
             ),
